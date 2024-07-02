@@ -1,7 +1,7 @@
 import { Request } from "express";
 
-import { ServiceAPIResponse } from "../../types/service-response";
-import { Article } from "../../types/articles";
+import { ServiceAPIResponse } from "../types/service-response";
+import { Article } from "../types/articles";
 
 const getAll = async (): Promise<ServiceAPIResponse<Article[]>> => {
   /* fetch data here */

@@ -24,11 +24,7 @@ app.get("/", (req: Request, res: Response) => {
   res.status(200).send("<h1>Express Typescript Starter</h1>");
 });
 
-// Articles routes
-
 app.use("/articles", articlesRouter);
-
-// Error hanlding middleware
 
 app.use(middleware.errorHandler);
 
