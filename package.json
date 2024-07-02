@@ -4,11 +4,11 @@
   "description": "A starter Node.js API server using Express, with Docker, Jest, and ESLint. All in Typescript",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node src/index.ts",
-    "dev": "nodemon src/index.ts",
-    "build": "npm run lint && tsc",
-    "lint": "eslint '**/*.ts'",
-    "test": "npm run build && jest"
+    "start": "nodemon src/index.ts",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
