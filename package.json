@@ -1,20 +1,15 @@
 {
-  "name": "express-typescript-starter",
+  "name": "node-express-typescript-starter",
   "version": "0.1.0",
   "description": "A starter Node.js API server using Express, with Docker, Jest, and ESLint. All in Typescript",
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "rimraf dist && tsc",
-    "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run build && concurrently -k \"tsc -w\" \"nodemon dist/index.js\"",
+    "build": "npm run lint && tsc",
+    "lint": "eslint src/**/* --ext .ts",
+    "test": "npm run build && jest"
   },
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -42,7 +37,6 @@
     "express": "^4.18.1",
     "helmet": "^5.1.0",
     "morgan": "^1.10.0",
-    "rimraf": "^5.0.7",
     "winston": "^3.7.2"
   }
 }
